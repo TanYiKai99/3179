@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A simple donut chart with embedded data.",
+    "data": {
+        "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/price_ranges.csv"
+    },
+    "mark": {
+        "type": "arc",
+        "innerRadius": 50,
+        "tooltip": true
+    },
+    "encoding": {
+        "theta": {
+            "aggregate": "count",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "Award",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "1 MICHELIN Star",
+                    "2 MICHELIN Stars",
+                    "3 MICHELIN Stars",
+                    "Bib Gourmand"
+                ],
+                "range": [
+                    "#b35900",
+                    "#66ccff",
+                    "#e6ac00",
+                    "#ff0000"
+                ]
+            }
+        }
+    }
+}

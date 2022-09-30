@@ -1,0 +1,9 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/Michelin_guide.csv"},
+  "mark": {"type":"point","clip": true},
+  "encoding": {
+    "x": {"field": "Min Price", "type": "quantitative", "scale":{"domain":[20,80]}},
+    "y": {"field": "Max Price", "type": "quantitative", "scale":{"domain":[50,150]}}
+  }
+}

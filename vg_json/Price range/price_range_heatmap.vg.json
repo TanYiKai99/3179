@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/price_ranges.csv"},
+  "mark": "rect",
+  "width": 600,
+  "height": 600,
+  "encoding": {
+    "x": {
+      "bin": {"maxbins":50},
+      "field": "Min Price",
+      "type": "quantitative"
+    },
+    "y": {
+      "bin": {"maxbins":40},
+      "field": "Max Price",
+      "type": "quantitative"
+    },
+    "color": {
+      "aggregate": "count",
+      "type": "quantitative"
+    }
+  },
+  "config": {
+    "axis": {"grid": true, "tickBand": "extent"}
+  }
+}

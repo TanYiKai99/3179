@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 450,
+
+  "title": "French Michelin Restaurant",
+  "projection": {"type": "mercator"},
+  "params": [
+    {
+      "name": "Award_Selection",
+      "bind":{
+        "input": "select",
+        "options": [null, "1 MICHELIN Star", "2 MICHELIN Stars", "3 MICHELIN Stars", "Bib Gourmand"],
+        "labels": ["Show All", "1 MICHELIN Star", "2 MICHELIN Stars", "3 MICHELIN Stars", "Bib Gourmand"]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Map%20Data/France%20Michelin%20Stars/ne_10m.json",
+        "format": {"type": "topojson", "feature": "ne_10m_admin_0_countries_lakes"}
+      },
+      "mark": {"type": "geoshape", "fill": "whitesmoke", "stroke": "gray"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Map%20Data/France%20Michelin%20Stars/ne_10m.json",
+        "format": {"type": "topojson", "feature": "ne_10m_urban_areas"}
+      },
+      "mark": {"type": "geoshape", "fill": "darkgray"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/France.Michelin.csv"
+      },
+      "transform": [{"filter":"Award_Selection == null ||datum.Award == Award_Selection"}],
+      "mark": {"type": "circle"},
+      "encoding": {
+        "tooltip": [
+            {"field": "Name", "type": "nominal"},
+            {"field": "Name", "type": "nominal"},
+            {"field": "Country", "type": "nominal"},
+            {"field": "Award", "type": "nominal"},
+            {"field": "Location", "type": "nominal"},
+            {"field": "Cuisine", "type": "nominal"}
+        ],
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "color": {
+          "field": "Award",
+          "type": "nominal",
+          "title": "Awards",
+          "legend": {"orient": "left"},
+          "scale": {
+            "domain": ["1 MICHELIN Star", "2 MICHELIN Stars", "3 MICHELIN Stars", "Bib Gourmand"],
+            "range": ["#b35900", "#66ccff", "#e6ac00", "#ff0000"]
+          }
+        }
+      }
+    }
+  ]
+}
