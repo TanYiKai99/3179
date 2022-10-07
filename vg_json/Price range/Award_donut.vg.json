@@ -4,11 +4,18 @@
     "data": {
         "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/price_ranges.csv"
     },
-    "mark": {
+    "layer":[{
+        "mark": {
         "type": "arc",
         "innerRadius": 50,
         "tooltip": true
-    },
+    }},{
+        "mark": {"type": "text", "radius": 100},
+        "encoding": {
+          "text": {"aggregate": "count", "type": "quantitative"}
+        }
+      }
+],
     "encoding": {
         "theta": {
             "aggregate": "count",

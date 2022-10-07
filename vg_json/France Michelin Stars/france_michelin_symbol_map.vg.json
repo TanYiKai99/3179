@@ -1,13 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
-  "height": 450,
+  "width": "container",
+  "height":"container",
 
   "title": "French Michelin Restaurant",
   "projection": {"type": "mercator"},
   "params": [
     {
-      "name": "Award_Selection",
+      "name": "Award",
       "bind":{
         "input": "select",
         "options": [null, "1 MICHELIN Star", "2 MICHELIN Stars", "3 MICHELIN Stars", "Bib Gourmand"],
@@ -21,21 +21,21 @@
         "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Map%20Data/France%20Michelin%20Stars/ne_10m.json",
         "format": {"type": "topojson", "feature": "ne_10m_admin_0_countries_lakes"}
       },
-      "mark": {"type": "geoshape", "fill": "whitesmoke", "stroke": "gray"}
+      "mark": {"type": "geoshape", "fill": "#737373", "stroke": "#252525"}
     },
     {
       "data": {
         "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Map%20Data/France%20Michelin%20Stars/ne_10m.json",
         "format": {"type": "topojson", "feature": "ne_10m_urban_areas"}
       },
-      "mark": {"type": "geoshape", "fill": "darkgray"}
+      "mark": {"type": "geoshape", "fill": "#525252"}
     },
     {
       "data": {
         "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/France.Michelin.csv"
       },
-      "transform": [{"filter":"Award_Selection == null ||datum.Award == Award_Selection"}],
-      "mark": {"type": "circle"},
+      "transform": [{"filter":"Award == null ||datum.Award == Award"}],
+      "mark": {"type": "circle", "size":100},
       "encoding": {
         "tooltip": [
             {"field": "Name", "type": "nominal"},
@@ -53,11 +53,34 @@
           "title": "Awards",
           "legend": {"orient": "left"},
           "scale": {
-            "domain": ["1 MICHELIN Star", "2 MICHELIN Stars", "3 MICHELIN Stars", "Bib Gourmand"],
-            "range": ["#b35900", "#66ccff", "#e6ac00", "#ff0000"]
+            "domain": ["Bib Gourmand","1 MICHELIN Star", "2 MICHELIN Stars", "3 MICHELIN Stars"],
+            "range": ["#fc9272", "#fb6a4a", "#ef3b2c", "#cb181d"]
           }
         }
       }
-    }
+    },
+    {"data": {
+      "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/France.Michelin.csv"},
+      "transform": [
+      {
+        "filter":"datum.X == 4651"
+      },
+      {"calculate": "'The L Auberge du Pont des Pierres is the; oldest Michelin Restaurant with both 3 Stars; and Bib Gourmand Award.; It has retained its 3 Michelin Star since 1965.'",
+    "as": "text_annotation_raw"
+  },
+  {
+    "calculate": "split(datum.text_annotation_raw,';')",
+    "as": "text_annotation"
+  }
+    ],
+  "mark":{
+    "type": "text",
+    "align":"right",
+    "dx":-200,
+    "dy":-8,
+    "fontSize":15,
+    "baseline":"middle"
+  },
+"encoding": {"text":{"field":"text_annotation"}}}
   ]
 }

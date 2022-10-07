@@ -2,20 +2,127 @@
 
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+
+
         <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
         <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
         <script src="vega_lite_vis.js"></script>
         <title>Week 9 Homework (Assignment 2) </title>
+
+
     </head>
 
     <body>
-        <h1>Michelin Star Restaraunt in France</h1>
-        <div id="Symbol_map">
+        <div class="page">
+            <div class="pure-g">
+                <div class="pure-u-1">
+                    <h1 class="center">
+                        A Guide to Michelin Star Restaraunts
+                    </h1>
+                </div>
+
+                <hr width="90%" 
+                size="20">
+
+
+                <div class="pure-u-1">
+                    <h2>Michelin Star Restaraunt in France</h1>
+                    <div id="Symbol_map" class="dotMap">
+                    </div>
+                </div>
+
+                
+                <hr width="90%" 
+                size="20">
+
+                <div class="pure-u-1-2">
+                    <h2>Bib Gourmand</h2>
+                    <p>
+                        Description about Bib Gourmand.....
+                    </p>
+                </div>
+                <div class="pure-u-1-2">
+                    <h2>Bib Gourmand Restaraunt around the World</h2>
+                    <div id="Bib_Gourmand_choro" class="half"></div>
+                </div>
+
+
+                <div class="pure-u-1-2">
+                    <h2>1 Star Restaraunt around the World</h1>
+                    <div id="one_star_choro" class="half">
+                    </div>
+                </div>
+                <div class="pure-u-1-2">
+                    <h2>1 Michelin Star</h1>
+                    <div>
+                        <p>
+                            Description about 1 Michelin star.....
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="pure-u-1-2">
+                    <h2>2 Michelin Star</h2>
+                    <p>
+                        Description about 2 Michelin star.....
+                    </p>
+                </div>
+                <div class="pure-u-1-2">
+                    <h2>2 Star Restaraunt around the World</h2>
+                    <div id="two_star_choro" class="half"></div>
+                </div>
+
+
+                <div class="pure-u-1-2">
+                    <h2>3 Star Restaraunt around the World</h2>
+                    <div id="three_star_choro" class="half">
+                    </div>
+                </div>
+                <div class="pure-u-1-2">
+                    <h2>3 Michelin Star</h2>
+                    <div>
+                        <p>
+                            Description about 1 Michelin star.....
+                        </p>
+                    </div>
+                </div>
+
+                <hr width="90%" 
+                size="20">
+
+                <div class="pure-u-1-2">
+                    <h2>Popular Cuisines</h2>
+                    <p>
+                        Description about popular cuisines.....
+                    </p>
+                </div>
+                <div class="pure-u-1-2">
+                    <div id="word_cloud"></div>
+                </div>
+
+                <div class="pure-u-1-2">
+                    <h2>Price Ranges</h2>
+                    <p>
+                        Description about Price range and proportions of awards.....
+                    </p>
+                </div>
+                <div class="pure-u-1-2">
+                    <div id="scatter_plot"></div>
+                </div>
+
+
+            </div>
         </div>
-    </body>
+   </body>
 
 </html>

@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Bib Gourmand Restaraunts around the World",
-    "width": 600,
-    "height": 400,
+    "width": "container",
+    "height": 300,
     "projection": {
       "type": "equalEarth"
     },

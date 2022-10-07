@@ -1,9 +1,165 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/Michelin_guide.csv"},
-  "mark": {"type":"point","clip": true},
-  "encoding": {
-    "x": {"field": "Min Price", "type": "quantitative", "scale":{"domain":[20,80]}},
-    "y": {"field": "Max Price", "type": "quantitative", "scale":{"domain":[50,150]}}
-  }
+  "data": {
+    "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/Michelin_guide.csv"
+  },
+  "vconcat": [
+    {
+      "mark": {
+        "type": "circle",
+        "clip": true
+      },
+      "params": [
+        {
+          "name": "brush",
+          "select": {
+            "type": "interval"
+          }
+        }
+      ],
+      "width": 500,
+      "height": 300,
+      "encoding": {
+        "color": {
+          "condition": {
+            "param": "brush",
+            "title": "Award",
+            "field": "Award",
+            "type": "nominal"
+          },
+          "value": "grey"
+        },
+        "x": {
+          "field": "Min Price",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "Max Price",
+          "type": "quantitative"
+        }
+      }
+    },
+    {"width":500,
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "height": {
+              "band": 0.2
+            }
+          },
+          
+          "encoding": {
+            "x": {
+              "aggregate": "count",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Award",
+              "type": "ordinal"
+            },
+            "color": {
+              "field": "Award",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  "Bib Gourmand",
+                  "1 MICHELIN Star",
+                  "2 MICHELIN Stars",
+                  "3 MICHELIN Stars"
+                ],
+                "range": [
+                  "#fc9272",
+                  "#fb6a4a",
+                  "#ef3b2c",
+                  "#cb181d"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "circle",
+            "tooltip": true,
+            "size": 200
+          },
+          "encoding": {
+            "color": {
+              "field": "Award",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  "Bib Gourmand",
+                  "1 MICHELIN Star",
+                  "2 MICHELIN Stars",
+                  "3 MICHELIN Stars"
+                ],
+                "range": [
+                  "#fc9272",
+                  "#fb6a4a",
+                  "#ef3b2c",
+                  "#cb181d"
+                ]
+              }
+            },
+            "x": {
+              "aggregate": "count",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Award",
+              "type": "ordinal"
+            }
+          }
+        },
+        {
+          "description": "Value label",
+          "mark": {
+            "type": "text",
+            "baseline": "top",
+            "dx": 20
+          },
+          "encoding": {
+            "color": {
+              "field": "Award",
+              "type": "ordinal",
+              "scale": {
+                "domain": [
+                  "Bib Gourmand",
+                  "1 MICHELIN Star",
+                  "2 MICHELIN Stars",
+                  "3 MICHELIN Stars"
+                ],
+                "range": [
+                  "#fc9272",
+                  "#fb6a4a",
+                  "#ef3b2c",
+                  "#cb181d"
+                ]
+              }
+            },
+            "x": {
+              "aggregate": "count",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "Award",
+              "type": "ordinal"
+            },
+            "text": {
+              "aggregate": "count"
+            }
+          }
+        }
+      ],
+      "transform": [
+        {
+          "filter": {
+            "param": "brush"
+          }
+        }
+      ]
+    }
+  ]
 }

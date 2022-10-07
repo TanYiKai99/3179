@@ -1,0 +1,41 @@
+body {
+    background-color: #99000d;
+  }
+
+.page {
+width: 1400px;
+margin: auto;
+margin-top: 2%;
+margin-bottom: 2%;
+padding: 70px;
+padding-top: 35px;
+box-shadow: 5px 8px;
+background-color: white;
+}
+
+.break{
+    page-break-before: always;
+}
+
+h1 {
+    font-family: 'Libre Baskerville', serif;
+}
+
+h2 {
+    font-family: 'Libre Baskerville', serif;
+}
+
+.dotMap {
+    width: 1200px;
+    height: 600px;
+}
+
+.half {
+    width: 100%;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }

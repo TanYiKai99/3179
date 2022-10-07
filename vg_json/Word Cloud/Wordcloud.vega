@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "A word cloud visualization depicting Vega research paper abstracts.",
-  "width": 800,
-  "height": 400,
+  "width": 500,
+  "height": 300,
   "padding": 0,
 
   "data": [
@@ -36,7 +36,7 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "table", "field": "text"},
-      "range": ["brown", "gold", "blue"]
+      "range": ["#fcae91", "#cb181d", "#cb181d"]
     }
   ],
 
@@ -49,7 +49,8 @@
           "text": {"field": "text"},
           "align": {"value": "center"},
           "baseline": {"value": "alphabetic"},
-          "fill": {"scale": "color", "field": "text"}
+          "fill": {"scale": "color", "field": "text"},
+          "tooltip": {"signal": "'Count: ' + datum.count"}
         },
         "update": {
           "fillOpacity": {"value": 1}
@@ -61,7 +62,7 @@
       "transform": [
         {
           "type": "wordcloud",
-          "size": [800, 400],
+          "size": [700, 400],
           "text": {"field": "text"},
           "rotate": {"field": "datum.angle"},
           "font": "Helvetica Neue, Arial",

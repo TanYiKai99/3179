@@ -17,7 +17,8 @@
     },
     "color": {
       "aggregate": "count",
-      "type": "quantitative"
+      "type": "quantitative",
+      "scale":{"range":["#fcae91", "#cb181d", "#cb181d"]}
     }
   },
   "config": {
