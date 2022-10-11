@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "One-star Michelin Restaraunts around the World",
+    "title": "Two-star Michelin Restaraunts around the World",
     "width": "container",
     "height": 300,
     "projection": {

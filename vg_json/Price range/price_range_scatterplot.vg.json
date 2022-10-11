@@ -17,7 +17,7 @@
           }
         }
       ],
-      "width": 500,
+      "width": 400,
       "height": 300,
       "encoding": {
         "color": {
@@ -39,7 +39,7 @@
         }
       }
     },
-    {"width":500,
+    {"width":400,
       "layer": [
         {
           "mark": {
@@ -117,8 +117,9 @@
           "description": "Value label",
           "mark": {
             "type": "text",
-            "baseline": "top",
-            "dx": 20
+            "baseline": "middle",
+            "dx": 25,
+            "size":15
           },
           "encoding": {
             "color": {

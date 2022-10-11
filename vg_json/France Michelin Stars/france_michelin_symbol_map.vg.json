@@ -78,7 +78,7 @@
     "align":"right",
     "dx":-200,
     "dy":-8,
-    "fontSize":14,
+    "fontSize":15,
     "baseline":"middle"
   },
 "encoding": {"text":{"field":"text_annotation"}}}
