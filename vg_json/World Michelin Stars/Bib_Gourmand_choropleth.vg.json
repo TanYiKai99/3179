@@ -10,6 +10,23 @@
     "layer": [
       {
         "data": {
+          "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/oceans.topojson",
+          "format": {"type": "topojson", "feature": "oceans"}
+        },
+        "mark": {"type": "geoshape", "fill": "skyblue"}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/ne_110m.json",
+          "format": {
+            "type": "topojson",
+            "feature": "ne_110m_graticules_30"
+          }
+        },
+        "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+      },
+      {
+        "data": {
           "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/ne_110m.json",
           "format": {
             "type": "topojson",
