@@ -1,13 +1,58 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Three-star Michelin Restaraunts around the World",
-    "width": 600,
-    "height": 400,
+    "width": "container",
+    "height": 300,
     "projection": {
-      "type": "equalEarth"
+      "type": "equalEarth",
+      "center": {"expr": "center_map"},
+      "scale": {"expr": "zoom_degree"}
     },
-    
+    "params": [
+      {
+        "name": "center_map",
+        "value": [0, 0],
+        "bind": {
+          "input": "select",
+          "options": [
+            [0, 0],
+            [12, 47],
+            [120,24]
+          ],
+          "labels": ["World", "Europe","Asia"],
+          "name": "Map Centre: "
+        }
+      },
+      {
+        "name": "zoom_degree",
+        "value": 90,
+        "bind": {
+          "input": "range",
+          "min": 90,
+          "max": 440,
+          "step": 50,
+          "name": "Zoom: "
+        }
+      }
+    ],
     "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/oceans.topojson",
+          "format": {"type": "topojson", "feature": "oceans"}
+        },
+        "mark": {"type": "geoshape", "fill": "skyblue"}
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/ne_110m.json",
+          "format": {
+            "type": "topojson",
+            "feature": "ne_110m_graticules_30"
+          }
+        },
+        "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+      },
       {
         "data": {
           "url": "https://raw.githubusercontent.com/TanYiKai99/3179-Assignment-2/main/Data/ne_110m.json",
@@ -49,7 +94,7 @@
             "type": "quantitative",
             "scale": {
               "type": "log",
-              "scheme": "oranges",
+              "scheme": "reds",
               "domain": [
                 1,
                 1000
