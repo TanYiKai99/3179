@@ -4,9 +4,37 @@
     "width": "container",
     "height": 300,
     "projection": {
-      "type": "equalEarth"
+      "type": "equalEarth",
+      "center": {"expr": "center_map"},
+      "scale": {"expr": "zoom_degree"}
     },
-    
+    "params": [
+      {
+        "name": "center_map",
+        "value": [0, 0],
+        "bind": {
+          "input": "select",
+          "options": [
+            [0, 0],
+            [12, 47],
+            [120,24]
+          ],
+          "labels": ["World", "Europe","Asia"],
+          "name": "Map Centre: "
+        }
+      },
+      {
+        "name": "zoom_degree",
+        "value": 90,
+        "bind": {
+          "input": "range",
+          "min": 90,
+          "max": 440,
+          "step": 50,
+          "name": "Zoom: "
+        }
+      }
+    ],
     "layer": [
       {
         "data": {
